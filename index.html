@@ -329,7 +329,7 @@
   <section id="cara-order">
     <div class="order-band">
       <div class="sec-head"><h2 data-i18n="order_h2">Cara Pemesanan</h2></div>
-      <p class="sec-sub" data-i18n="order_sub">Seluruh proses pemesanan dilakukan melalui WhatsApp — tanpa registrasi dan tanpa aplikasi tambahan. Ikuti empat langkah berikut: setiap pesanan otomatis tersusun dalam format invoice, mulai dari invoice order, invoice DP, hingga invoice pelunasan.</p>
+      <p class="sec-sub" data-i18n="order_sub">Seluruh proses pemesanan dilakukan melalui WhatsApp — tanpa registrasi dan tanpa aplikasi tambahan. Ikuti empat langkah berikut: setiap pesanan otomatis tersusun dalam format invoice, mulai dari invoice order hingga invoice DP.</p>
       <ol class="steps">
         <li class="step">
           <div class="step-top"><span class="num">1</span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></span></div>
@@ -349,7 +349,7 @@
         <li class="step">
           <div class="step-top"><span class="num">4</span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></span></div>
           <h3 data-i18n="step4_h">Produksi, Pelunasan &amp; Pengiriman</h3>
-          <p data-i18n="step4_p">Pesanan diproduksi dengan estimasi pengerjaan 4–7 hari. Setelah selesai, lakukan pelunasan dan Anda akan menerima invoice pelunasan berstatus LUNAS — kemudian pesanan dikirimkan atau dapat diambil sesuai kesepakatan.</p>
+          <p data-i18n="step4_p">Pesanan diproduksi dengan estimasi pengerjaan 4–7 hari. Setelah selesai, lakukan pelunasan sisa pembayaran — kemudian pesanan dikirimkan atau dapat diambil sesuai kesepakatan.</p>
         </li>
       </ol>
       <div class="order-note">
@@ -450,11 +450,10 @@
           <p class="inv-foot" data-i18n="inv_foot">Harga final dikonfirmasi melalui WhatsApp sebelum produksi. Terima kasih sudah memesan di Resinika Studio!</p>
         </div>
         <div class="inv-tools">
-          <h4 data-i18n="inv_tool_h">Invoice DP &amp; Pelunasan — untuk Pemilik Usaha</h4>
-          <p data-i18n="inv_tool_p">Setelah pembayaran diterima, buat invoice statusnya di sini: klik Invoice DP saat DP 50% masuk, atau Invoice Pelunasan saat pembayaran lunas. Teks invoice terisi otomatis dari data order di atas — tinggal kirim ke customer via WhatsApp.</p>
+          <h4 data-i18n="inv_tool_h">Invoice DP — untuk Pemilik Usaha</h4>
+          <p data-i18n="inv_tool_p">Setelah pembayaran diterima, buat invoice statusnya di sini: klik Invoice DP saat DP 50% masuk. Teks invoice terisi otomatis dari data order di atas — tinggal kirim ke customer via WhatsApp.</p>
           <div class="inv-btns">
             <button type="button" class="btn btn-blue" id="btnInvDp" data-i18n="btn_inv_dp">Buat Invoice DP</button>
-            <button type="button" class="btn btn-ghost" id="btnInvLunas" data-i18n="btn_inv_lunas">Buat Invoice Pelunasan</button>
           </div>
           <div class="inv-out" id="invToolOut" hidden>
             <pre id="invToolText"></pre>
@@ -707,7 +706,7 @@
       strip_rev: "Revisi desain gratis sebelum produksi",
       strip_stiker: "Cetak stiker A3+ — Rp27.500/lembar",
       order_h2: "Cara Pemesanan",
-      order_sub: "Seluruh proses pemesanan dilakukan melalui WhatsApp — tanpa registrasi dan tanpa aplikasi tambahan. Ikuti empat langkah berikut: setiap pesanan otomatis tersusun dalam format invoice, mulai dari invoice order, invoice DP, hingga invoice pelunasan.",
+      order_sub: "Seluruh proses pemesanan dilakukan melalui WhatsApp — tanpa registrasi dan tanpa aplikasi tambahan. Ikuti empat langkah berikut: setiap pesanan otomatis tersusun dalam format invoice, mulai dari invoice order hingga invoice DP.",
       step1_h: "Hitung di Kalkulator & Kirim Invoice Order",
       step1_p: "Gunakan kalkulator harga di bawah: pilih produk, isi rincian ukuran, nama, lokasi, dan tanggal order. Pesanan Anda otomatis tersusun sebagai invoice order — lengkap dengan nomor dan tanggal invoice — lalu terkirim ke WhatsApp kami.",
       step2_h: "Kirim Desain & Rincian Ukuran",
@@ -715,7 +714,7 @@
       step3_h: "Konfirmasi, Lalu Bayar DP 50%",
       step3_p: "Harga final dan detail pesanan kami konfirmasikan melalui chat — transparan, tanpa biaya tersembunyi. Setelah sesuai, lakukan pembayaran DP 50% — transfer ke BCA 2180514522 a.n. Yazid Alfatih — dan Anda akan menerima invoice DP sebagai bukti pembayaran. Revisi desain gratis pada tahap ini, sebelum naik cetak.",
       step4_h: "Produksi, Pelunasan & Pengiriman",
-      step4_p: "Pesanan diproduksi dengan estimasi pengerjaan 4–7 hari. Setelah selesai, lakukan pelunasan dan Anda akan menerima invoice pelunasan berstatus LUNAS — kemudian pesanan dikirimkan atau dapat diambil sesuai kesepakatan.",
+      step4_p: "Pesanan diproduksi dengan estimasi pengerjaan 4–7 hari. Setelah selesai, lakukan pelunasan sisa pembayaran — kemudian pesanan dikirimkan atau dapat diambil sesuai kesepakatan.",
       order_note: "<strong>Butuh bantuan memilih paket?</strong> Sampaikan kebutuhan Anda kepada tim kami, dan kami akan merekomendasikan paket yang paling sesuai.",
       order_note_btn: "Mulai Percakapan",
       calc_h2: "Kalkulator Estimasi Harga",
@@ -779,11 +778,9 @@
       inv_foot: "Harga final dikonfirmasi melalui WhatsApp sebelum produksi. Terima kasih sudah memesan di Resinika Studio!",
       inv_status_order: "Status: Menunggu pembayaran DP 50% — {dp}",
       inv_status_dp: "Status: DP diterima — {dp} (50%). Sisa pelunasan: {sisa}",
-      inv_status_lunas: "Status: LUNAS — pembayaran diterima penuh {total}",
-      inv_tool_h: "Invoice DP & Pelunasan — untuk Pemilik Usaha",
-      inv_tool_p: "Setelah pembayaran diterima, buat invoice statusnya di sini: klik Invoice DP saat DP 50% masuk, atau Invoice Pelunasan saat pembayaran lunas. Teks invoice terisi otomatis dari data order di atas — tinggal kirim ke customer via WhatsApp.",
+      inv_tool_h: "Invoice DP — untuk Pemilik Usaha",
+      inv_tool_p: "Setelah pembayaran diterima, buat invoice statusnya di sini: klik Invoice DP saat DP 50% masuk. Teks invoice terisi otomatis dari data order di atas — tinggal kirim ke customer via WhatsApp.",
       btn_inv_dp: "Buat Invoice DP",
-      btn_inv_lunas: "Buat Invoice Pelunasan",
       inv_tool_send: "Kirim Invoice Ini via WhatsApp",
       inv_text: "INVOICE — RESINIKA STUDIO\nJl. Mangga Dalam No.2A, Gandaria Selatan, Cilandak, Jakarta Selatan\nNo: {no}\nTanggal: {date}\n\nCustomer: {name}\nLokasi: {loc}\n\nItem:\n- {desc}\n{sizes}\n{qty} pcs × {unit}\n\nTotal: {total}\nDP 50%: {dp}\nSisa pelunasan: {sisa}\nPembayaran: BCA 2180514522 a.n. Yazid Alfatih\n{status}{xlnote}\n\nHarga final dikonfirmasi melalui WhatsApp sebelum produksi. Terima kasih sudah memesan di Resinika Studio!",
       kaos_h2: "Kaos 24s — Sablon DTF",
@@ -901,7 +898,7 @@
       strip_rev: "Free design revisions before production",
       strip_stiker: "A3+ sticker printing — Rp27,500/sheet",
       order_h2: "How to Order",
-      order_sub: "The entire ordering process takes place on WhatsApp — no registration and no additional apps required. Follow these four steps: every order is automatically composed in invoice format, from the order invoice and the down-payment invoice to the final settlement invoice.",
+      order_sub: "The entire ordering process takes place on WhatsApp — no registration and no additional apps required. Follow these four steps: every order is automatically composed in invoice format, from the order invoice to the down-payment invoice.",
       step1_h: "Calculate & Send the Order Invoice",
       step1_p: "Use the price calculator below: choose a product, then fill in the size breakdown, your name, location, and order date. Your order is automatically composed as an order invoice — complete with invoice number and date — and sent to our WhatsApp.",
       step2_h: "Send Your Design & Size Breakdown",
@@ -909,7 +906,7 @@
       step3_h: "Confirm, Then Pay the 50% Down Payment",
       step3_p: "We confirm the final price and order details by chat — transparent, with no hidden fees. Once everything checks out, pay the 50% down payment — transfer to BCA 2180514522 in the name of Yazid Alfatih — and you will receive a down-payment invoice as proof of payment. Design revisions are free at this stage, before printing starts.",
       step4_h: "Production, Settlement & Delivery",
-      step4_p: "Your order is produced within an estimated 4–7 days. Once it is ready, settle the remaining balance and you will receive a settlement invoice marked PAID IN FULL — then your order is delivered or made available for pickup as agreed.",
+      step4_p: "Your order is produced within an estimated 4–7 days. Once it is ready, settle the remaining balance — then your order is delivered or made available for pickup as agreed.",
       order_note: "<strong>Need help choosing a package?</strong> Tell our team what you need, and we will recommend the most suitable package for you.",
       order_note_btn: "Start a Chat",
       calc_h2: "Price Estimate Calculator",
@@ -973,11 +970,9 @@
       inv_foot: "The final price is confirmed via WhatsApp before production. Thank you for ordering from Resinika Studio!",
       inv_status_order: "Status: Awaiting 50% down payment — {dp}",
       inv_status_dp: "Status: Down payment received — {dp} (50%). Remaining balance: {sisa}",
-      inv_status_lunas: "Status: PAID IN FULL — payment received in full {total}",
-      inv_tool_h: "DP & Settlement Invoices — for the Business Owner",
-      inv_tool_p: "Once a payment is received, generate its status invoice here: tap DP Invoice when the 50% down payment arrives, or Settlement Invoice when the balance is paid in full. The invoice text is filled in automatically from the order above — just send it to the customer via WhatsApp.",
+      inv_tool_h: "DP Invoice — for the Business Owner",
+      inv_tool_p: "Once a payment is received, generate its status invoice here: tap DP Invoice when the 50% down payment arrives. The invoice text is filled in automatically from the order above — just send it to the customer via WhatsApp.",
       btn_inv_dp: "Generate DP Invoice",
-      btn_inv_lunas: "Generate Settlement Invoice",
       inv_tool_send: "Send This Invoice via WhatsApp",
       inv_text: "INVOICE — RESINIKA STUDIO\nJl. Mangga Dalam No.2A, Gandaria Selatan, Cilandak, South Jakarta\nNo: {no}\nDate: {date}\n\nCustomer: {name}\nLocation: {loc}\n\nItem:\n- {desc}\n{sizes}\n{qty} pcs × {unit}\n\nTotal: {total}\nDown payment (50%): {dp}\nRemaining balance: {sisa}\nPayment: BCA 2180514522 in the name of Yazid Alfatih\n{status}{xlnote}\n\nThe final price is confirmed via WhatsApp before production. Thank you for ordering from Resinika Studio!",
       kaos_h2: "24s T-Shirts — DTF Printing",
@@ -1111,7 +1106,6 @@
   var invToolText = document.getElementById("invToolText");
   var invToolWa = document.getElementById("invToolWa");
   var btnInvDp = document.getElementById("btnInvDp");
-  var btnInvLunas = document.getElementById("btnInvLunas");
   var langIdBtn = document.getElementById("langId");
   var langEnBtn = document.getElementById("langEn");
 
@@ -1198,7 +1192,6 @@
   custLocEl.addEventListener("input", function(){ state.custLoc = custLocEl.value.trim(); render(); });
   custDateEl.addEventListener("change", function(){ if (custDateEl.value) state.custDate = custDateEl.value; render(); });
   btnInvDp.addEventListener("click", function(){ state.invStatus = "dp"; invToolOut.hidden = false; render(); });
-  btnInvLunas.addEventListener("click", function(){ state.invStatus = "lunas"; invToolOut.hidden = false; render(); });
 
   function currentOrder(){
     var p = PRICES[state.product];
@@ -1218,7 +1211,7 @@
     return { desc: desc, qty: qty, tier: tier, unit: unit, total: total, dp: dp, sisa: total - dp, parts: parts, lines: lines, xln: xlQty() };
   }
   function statusText(status, o){
-    var key = status === "dp" ? "inv_status_dp" : (status === "lunas" ? "inv_status_lunas" : "inv_status_order");
+    var key = status === "dp" ? "inv_status_dp" : "inv_status_order";
     return T(key).replace("{dp}", rp(o.dp)).replace("{sisa}", rp(o.sisa)).replace("{total}", rp(o.total));
   }
   function buildInvoice(status){
@@ -1262,7 +1255,6 @@
     invDpEl.textContent = rp(o.dp);
     invSisaEl.textContent = rp(o.sisa);
     invStatusEl.textContent = statusText(state.invStatus, o);
-    invStatusEl.classList.toggle("done", state.invStatus === "lunas");
     invXlEl.hidden = !(o.xln > 0);
     if (o.xln > 0) invXlEl.textContent = T("msg_xl_note").replace("{n}", o.xln);
     outWa.href = waLink(buildInvoice(state.invStatus));
