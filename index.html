@@ -137,6 +137,19 @@
   .qty-row button{width:48px;height:48px;border-radius:12px;border:2px solid #b9cfe9;background:var(--surface);color:var(--blue-dark);font-size:22px;font-weight:800;cursor:pointer}
   .qty-row button:hover{border-color:var(--blue)}
   .qty-row input{width:90px;min-height:48px;border-radius:12px;border:2px solid #b9cfe9;background:var(--surface);color:var(--ink);font:inherit;font-weight:800;font-size:18px;text-align:center}
+  .size-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+  @media(min-width:560px){.size-grid{grid-template-columns:repeat(4,1fr)}}
+  .size-cell{background:var(--surface);border:2px solid #b9cfe9;border-radius:12px;padding:9px 10px}
+  .size-cell.on{border-color:var(--blue);background:var(--blue-soft)}
+  .size-cell .s-name{display:block;font-weight:800;font-size:15px;margin-bottom:6px}
+  .size-cell .s-name small{display:block;font-weight:700;font-size:10px;color:var(--coral-dark);margin-top:1px}
+  .size-step{display:flex;align-items:center;gap:6px}
+  .size-step button{width:36px;height:36px;flex:none;border-radius:9px;border:2px solid #b9cfe9;background:var(--surface);color:var(--blue-dark);font-size:18px;font-weight:800;cursor:pointer;line-height:1;padding:0}
+  .size-step button:hover{border-color:var(--blue)}
+  .size-step input{width:100%;min-width:0;min-height:36px;border:0;background:transparent;color:var(--ink);font:inherit;font-weight:800;font-size:16px;text-align:center;padding:0}
+  .size-total{margin:10px 0 0;font-size:15px}
+  .size-total b{color:var(--blue-dark);font-size:17px}
+  .hint{margin:4px 0 0;font-size:13px;color:var(--muted)}
   .calc-out{background:var(--surface);border-radius:var(--radius);padding:18px;display:flex;flex-direction:column;gap:6px;box-shadow:var(--shadow-sm)}
   .calc-out .unit{font-size:15px;color:var(--muted)}
   .calc-out .unit b{color:var(--ink)}
@@ -331,16 +344,15 @@
             </div>
           </div>
           <div class="field">
-            <label data-i18n="lbl_qty">Jumlah (pcs)</label>
-            <div class="qty-row">
-              <button type="button" id="qtyMinus" aria-label="Kurangi jumlah" data-i18n-aria="aria_minus">−</button>
-              <input type="number" id="qtyInput" value="12" min="1" max="999" inputmode="numeric" aria-label="Jumlah pcs" data-i18n-aria="aria_qty" />
-              <button type="button" id="qtyPlus" aria-label="Tambah jumlah" data-i18n-aria="aria_plus">+</button>
-            </div>
+            <label data-i18n="lbl_sizes">Rincian Ukuran</label>
+            <div class="size-grid" id="sizeGrid"></div>
+            <p class="size-total"><span data-i18n="sizes_total">Total</span>: <b id="sizeTotal">12</b> pcs</p>
+            <p class="hint" data-i18n="sizes_hint">Isi jumlah untuk tiap ukuran yang dipesan — total pcs terhitung otomatis. Ukuran S–XL tarif sama.</p>
           </div>
         </div>
         <div class="calc-out" aria-live="polite">
           <div class="unit" id="outDesc">Kaos 24s — Sablon DTF · A4 + Logo · Lengan pendek</div>
+          <div class="unit" id="outSizes">Ukuran: S 2 · M 4 · L 4 · XL 2</div>
           <div class="unit"><span data-i18n="unit_price_label">Harga per pcs:</span> <b id="outUnit">Rp70.000</b> <span id="outTier">(tarif 12–23 pcs)</span></div>
           <div class="total" id="outTotal">Rp840.000</div>
           <div class="note" data-i18n="calc_note">Estimasi berdasarkan harga katalog. Ukuran 2XL–4XL dikenakan tambahan Rp5.000–7.000/pcs — konfirmasi final dilakukan melalui WhatsApp.</div>
@@ -595,7 +607,7 @@
       step1_h: "Hubungi Kami via WhatsApp",
       step1_p: "Klik tombol pesan pada paket yang Anda pilih, atau gunakan kalkulator harga di bawah agar detail pesanan Anda langsung tersusun dengan rapi.",
       step2_h: "Kirim Desain & Rincian Ukuran",
-      step2_p: "Kirimkan file desain atau logo Anda, jumlah pesanan, serta rincian ukuran S–XL yang dibutuhkan.",
+      step2_p: "Kirimkan file desain atau logo Anda, jumlah pesanan, serta rincian ukuran S–4XL yang dibutuhkan.",
       step3_h: "Konfirmasi Harga & Desain",
       step3_p: "Harga final dan detail pesanan kami konfirmasikan melalui chat sebelum produksi dimulai — transparan, tanpa biaya tersembunyi. Revisi desain tersedia gratis pada tahap ini, sebelum naik cetak.",
       step4_h: "Produksi & Pengiriman",
@@ -603,12 +615,22 @@
       order_note: "<strong>Butuh bantuan memilih paket?</strong> Sampaikan kebutuhan Anda kepada tim kami, dan kami akan merekomendasikan paket yang paling sesuai.",
       order_note_btn: "Mulai Percakapan",
       calc_h2: "Kalkulator Estimasi Harga",
-      calc_sub: "Pilih produk, ukuran desain, dan jumlah pesanan — estimasi total akan ditampilkan secara langsung dan dapat diteruskan ke WhatsApp kami.",
+      calc_sub: "Pilih produk, ukuran desain, dan rincian ukuran — estimasi total akan ditampilkan secara langsung dan daftar pesanan Anda dapat diteruskan ke WhatsApp kami.",
       lbl_product: "Produk",
       lbl_design_kaos: "Ukuran Desain Sablon",
       lbl_design_polo: "Ukuran Bordir",
       lbl_sleeve: "Lengan",
       lbl_qty: "Jumlah (pcs)",
+      lbl_sizes: "Rincian Ukuran",
+      sizes_total: "Total",
+      sizes_hint: "Isi jumlah untuk tiap ukuran yang dipesan — total pcs terhitung otomatis. Ukuran S–XL tarif sama.",
+      sizes_label: "Ukuran:",
+      sizes_none: "belum ada ukuran yang diisi",
+      size_surcharge: "+Rp5.000–7.000/pcs",
+      aria_minus_size: "Kurangi ukuran",
+      aria_plus_size: "Tambah ukuran",
+      aria_size_qty: "Jumlah ukuran",
+      msg_xl_note: "Catatan: {n} pcs ukuran 2XL–4XL dikenakan tambahan Rp5.000–7.000/pcs — mohon konfirmasi harga finalnya.",
       prod_kaos_btn: "Kaos 24s — Sablon DTF",
       prod_polo_btn: "Polo — Bordir",
       prodname_kaos: "Kaos 24s — Sablon DTF",
@@ -629,7 +651,7 @@
       calc_note: "Estimasi berdasarkan harga katalog. Ukuran 2XL–4XL dikenakan tambahan Rp5.000–7.000/pcs — konfirmasi final dilakukan melalui WhatsApp.",
       calc_warn: "Jumlah ini berada di bawah minimum order 12 pcs per desain. Silakan hubungi kami melalui WhatsApp — kami akan bantu carikan solusinya.",
       calc_send: "Kirim Pilihan Ini ke WhatsApp",
-      calc_msg: "Halo Resinika, saya ingin memesan:\n• Produk: {desc}\n• Jumlah: {qty} pcs\n• Harga katalog: {unit}/pcs\n• Estimasi total: {total}\nMohon dibantu untuk proses selanjutnya.",
+      calc_msg: "Halo Resinika, saya ingin memesan:\n• Produk: {desc}\n• Rincian ukuran:\n{sizes}\n• Total: {qty} pcs\n• Harga katalog: {unit}/pcs\n• Estimasi total: {total}{xlnote}\nMohon dibantu untuk proses selanjutnya.",
       kaos_h2: "Kaos 24s — Sablon DTF",
       kaos_sub: "Cotton combed 24s dengan sablon DTF yang detail dan full color. Harga per pcs berlaku sama untuk ukuran S–XL. Lengan panjang dikenakan tambahan Rp5.000 dari harga lengan pendek.",
       kaos_logo_desc: "Satu logo tercetak di bagian dada. Pilihan yang tepat untuk seragam tim, kru, dan komunitas dengan tampilan yang bersih dan profesional.",
@@ -748,7 +770,7 @@
       step1_h: "Contact Us on WhatsApp",
       step1_p: "Tap the order button on the package of your choice, or use the price calculator below so your order details are neatly composed for you.",
       step2_h: "Send Your Design & Size Breakdown",
-      step2_p: "Send us your design or logo file, the order quantity, and the size breakdown (S–XL) you need.",
+      step2_p: "Send us your design or logo file, the order quantity, and the size breakdown (S–4XL) you need.",
       step3_h: "Confirm Price & Design",
       step3_p: "We confirm the final price and order details by chat before production begins — transparent, with no hidden fees. Design revisions are free at this stage, before printing starts.",
       step4_h: "Production & Delivery",
@@ -756,12 +778,22 @@
       order_note: "<strong>Need help choosing a package?</strong> Tell our team what you need, and we will recommend the most suitable package for you.",
       order_note_btn: "Start a Chat",
       calc_h2: "Price Estimate Calculator",
-      calc_sub: "Select a product, design size, and quantity — the estimated total appears instantly and can be forwarded straight to our WhatsApp.",
+      calc_sub: "Select a product, design size, and size breakdown — the estimated total appears instantly and your order list can be forwarded straight to our WhatsApp.",
       lbl_product: "Product",
       lbl_design_kaos: "Print Design Size",
       lbl_design_polo: "Embroidery Size",
       lbl_sleeve: "Sleeves",
       lbl_qty: "Quantity (pcs)",
+      lbl_sizes: "Size Breakdown",
+      sizes_total: "Total",
+      sizes_hint: "Enter the quantity for each size you need — the total piece count is calculated automatically. Sizes S–XL are charged at the same rate.",
+      sizes_label: "Sizes:",
+      sizes_none: "no sizes entered yet",
+      size_surcharge: "+Rp5,000–7,000/pc",
+      aria_minus_size: "Decrease size",
+      aria_plus_size: "Increase size",
+      aria_size_qty: "Quantity for size",
+      msg_xl_note: "Note: {n} pcs in sizes 2XL–4XL incur an additional Rp5,000–7,000 per piece — please confirm the final price.",
       prod_kaos_btn: "24s T-Shirt — DTF Print",
       prod_polo_btn: "Polo — Embroidery",
       prodname_kaos: "24s T-Shirt — DTF Print",
@@ -782,7 +814,7 @@
       calc_note: "Estimate based on catalog prices. Sizes 2XL–4XL incur an additional Rp5,000–7,000 per piece — final confirmation takes place via WhatsApp.",
       calc_warn: "This quantity is below the minimum order of 12 pcs per design. Please contact us on WhatsApp — we will do our best to find a solution.",
       calc_send: "Send This Selection via WhatsApp",
-      calc_msg: "Hello Resinika, I would like to order:\n• Product: {desc}\n• Quantity: {qty} pcs\n• Catalog price: {unit}/pc\n• Estimated total: {total}\nPlease assist me with the next steps.",
+      calc_msg: "Hello Resinika, I would like to order:\n• Product: {desc}\n• Size breakdown:\n{sizes}\n• Total: {qty} pcs\n• Catalog price: {unit}/pc\n• Estimated total: {total}{xlnote}\nPlease assist me with the next steps.",
       kaos_h2: "24s T-Shirts — DTF Printing",
       kaos_sub: "Cotton combed 24s with detailed, full-color DTF printing. Per-piece prices apply equally to sizes S–XL. Long sleeves add Rp5,000 over the short-sleeve price.",
       kaos_logo_desc: "A single logo printed on the chest. The right choice for team, crew, and community uniforms with a clean, professional look.",
@@ -867,7 +899,10 @@
       }
     }
   };
-  var state = { lang: "id", product: "kaos", design: "a4", sleeve: "pendek", qty: 12 };
+  var SIZES = ["S", "M", "L", "XL", "2XL", "3XL", "4XL"];
+  var state = { lang: "id", product: "kaos", design: "a4", sleeve: "pendek", sizes: { "S": 2, "M": 4, "L": 4, "XL": 2, "2XL": 0, "3XL": 0, "4XL": 0 } };
+  function totalQty(){ var t = 0; for (var i = 0; i < SIZES.length; i++) t += state.sizes[SIZES[i]] || 0; return t; }
+  function xlQty(){ return (state.sizes["2XL"] || 0) + (state.sizes["3XL"] || 0) + (state.sizes["4XL"] || 0); }
 
   function T(k){ return I18N[state.lang][k] || I18N.id[k] || k; }
   function rp(n){ return "Rp" + n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, state.lang === "en" ? "," : "."); }
@@ -878,8 +913,10 @@
   var segSleeve  = document.getElementById("segSleeve");
   var sleeveField = document.getElementById("sleeveField");
   var designLabel = document.getElementById("designLabel");
-  var qtyInput = document.getElementById("qtyInput");
+  var sizeGrid = document.getElementById("sizeGrid");
+  var sizeTotal = document.getElementById("sizeTotal");
   var outDesc = document.getElementById("outDesc");
+  var outSizes = document.getElementById("outSizes");
   var outUnit = document.getElementById("outUnit");
   var outTier = document.getElementById("outTier");
   var outTotal = document.getElementById("outTotal");
@@ -919,24 +956,80 @@
   bindSeg(segDesign, "design");
   bindSeg(segSleeve, "sleeve");
 
-  document.getElementById("qtyMinus").addEventListener("click", function(){ state.qty = Math.max(1, (parseInt(qtyInput.value,10)||0) - 1); qtyInput.value = state.qty; render(); });
-  document.getElementById("qtyPlus").addEventListener("click", function(){ state.qty = Math.min(999, (parseInt(qtyInput.value,10)||0) + 1); qtyInput.value = state.qty; render(); });
-  qtyInput.addEventListener("input", function(){ state.qty = parseInt(qtyInput.value,10) || 0; render(); });
+  function buildSizes(){
+    sizeGrid.innerHTML = "";
+    SIZES.forEach(function(s){
+      var cell = document.createElement("div");
+      cell.className = "size-cell"; cell.setAttribute("data-cell", s);
+      var name = document.createElement("span");
+      name.className = "s-name"; name.textContent = s;
+      if (s === "2XL" || s === "3XL" || s === "4XL"){
+        var sm = document.createElement("small"); sm.textContent = T("size_surcharge"); name.appendChild(sm);
+      }
+      var step = document.createElement("div"); step.className = "size-step";
+      var minus = document.createElement("button");
+      minus.type = "button"; minus.textContent = "−";
+      minus.setAttribute("data-act", "minus"); minus.setAttribute("data-size", s);
+      minus.setAttribute("aria-label", T("aria_minus_size") + " " + s);
+      var inp = document.createElement("input");
+      inp.type = "number"; inp.min = "0"; inp.max = "999"; inp.inputMode = "numeric";
+      inp.value = state.sizes[s] || 0; inp.setAttribute("data-size", s);
+      inp.setAttribute("aria-label", T("aria_size_qty") + " " + s);
+      var plus = document.createElement("button");
+      plus.type = "button"; plus.textContent = "+";
+      plus.setAttribute("data-act", "plus"); plus.setAttribute("data-size", s);
+      plus.setAttribute("aria-label", T("aria_plus_size") + " " + s);
+      step.appendChild(minus); step.appendChild(inp); step.appendChild(plus);
+      cell.appendChild(name); cell.appendChild(step);
+      sizeGrid.appendChild(cell);
+    });
+  }
+  function syncSizeInputs(){
+    var inputs = sizeGrid.querySelectorAll("input");
+    for (var i = 0; i < inputs.length; i++) inputs[i].value = state.sizes[inputs[i].getAttribute("data-size")] || 0;
+  }
+  sizeGrid.addEventListener("click", function(e){
+    var b = e.target.closest("button"); if (!b) return;
+    var s = b.getAttribute("data-size");
+    var d = b.getAttribute("data-act") === "minus" ? -1 : 1;
+    state.sizes[s] = Math.max(0, Math.min(999, (state.sizes[s] || 0) + d));
+    syncSizeInputs();
+    render();
+  });
+  sizeGrid.addEventListener("input", function(e){
+    var inp = e.target.closest("input"); if (!inp) return;
+    var s = inp.getAttribute("data-size");
+    var v = parseInt(inp.value, 10); if (isNaN(v)) v = 0;
+    state.sizes[s] = Math.max(0, Math.min(999, v));
+    render();
+  });
 
   function render(){
     var p = PRICES[state.product];
     var d = p.designs[state.design];
-    var tier = state.qty >= 24 ? 1 : 0;
+    var qty = totalQty();
+    var tier = qty >= 24 ? 1 : 0;
     var prices = d[state.sleeve] || d.pendek;
     var unit = prices[tier];
-    var qty = Math.max(state.qty, 0);
     var desc = T("prodname_" + state.product) + " · " + T("design_" + state.product + "_" + state.design) + " · " + T(state.sleeve === "panjang" ? "sleeve_long_desc" : "sleeve_short_desc");
     outDesc.textContent = desc;
+    var parts = [], lines = [];
+    SIZES.forEach(function(s){
+      var n = state.sizes[s] || 0;
+      if (n > 0){ parts.push(s + " " + n); lines.push("  - " + s + ": " + n + " pcs"); }
+    });
+    outSizes.textContent = T("sizes_label") + " " + (parts.length ? parts.join(" · ") : T("sizes_none"));
+    sizeTotal.textContent = qty;
+    var cells = sizeGrid.querySelectorAll(".size-cell");
+    for (var c = 0; c < cells.length; c++) cells[c].classList.toggle("on", (state.sizes[cells[c].getAttribute("data-cell")] || 0) > 0);
     outUnit.textContent = rp(unit);
     outTier.textContent = T(tier === 1 ? "tier_24" : "tier_12");
     outTotal.textContent = rp(unit * qty);
-    outWarn.hidden = !(qty > 0 && qty < 12);
-    var msg = T("calc_msg").replace("{desc}", desc).replace("{qty}", qty).replace("{unit}", rp(unit)).replace("{total}", rp(unit * qty));
+    outWarn.hidden = !(qty < 12);
+    if (!lines.length) lines.push("  - " + T("sizes_none"));
+    var xln = xlQty();
+    var xlnote = xln > 0 ? "\n• " + T("msg_xl_note").replace("{n}", xln) : "";
+    var msg = T("calc_msg").replace("{desc}", desc).replace("{sizes}", lines.join("\n")).replace("{qty}", qty).replace("{unit}", rp(unit)).replace("{total}", rp(unit * qty)).replace("{xlnote}", xlnote);
     outWa.href = waLink(msg);
   }
 
@@ -958,6 +1051,7 @@
     var rps = document.querySelectorAll("[data-rp]");
     for (var n=0;n<rps.length;n++) rps[n].textContent = rp(parseInt(rps[n].getAttribute("data-rp"),10));
     buildDesigns();
+    buildSizes();
     render();
   }
   langIdBtn.addEventListener("click", function(){ applyLang("id"); });
